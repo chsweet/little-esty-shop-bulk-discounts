@@ -1,5 +1,7 @@
 <%= render 'dashboard/merch_nav' %>
 
+<%= link_to 'Bulk Discounts', merchant_bulk_discounts_path(@merchant) %>
+
 <h3>Favorite Customers</h3>
 <% @favorite_customers.each do |customer| %>
   <p> <%= customer.first_name %> <%= customer.last_name %>:

@@ -6,6 +6,10 @@ RSpec.describe 'Merchant Dashboard' do
     before :each do
       @merchant = create(:merchant)
 
+      @bulk_discount_1 = create(:bulk_discount)
+      @bulk_discount_2 = create(:bulk_discount)
+      @bulk_discount_3 = create(:bulk_discount)
+
       @customer_1 = create(:customer)
       @customer_2 = create(:customer)
       @customer_3 = create(:customer)
@@ -59,7 +63,7 @@ RSpec.describe 'Merchant Dashboard' do
       @invoice_item_6 = create(:invoice_item, invoice: @invoice_6, item: @item_4, status: :packaged)
       @invoice_item_7 = create(:invoice_item, invoice: @invoice_7, item: @item_4, status: :packaged)
 
-      visit "/merchants/#{@merchant.id}/dashboard"
+      visit merchant_dashboard_index_path(@merchant)
     end
 
     it "displays the merchant name" do
@@ -108,6 +112,14 @@ RSpec.describe 'Merchant Dashboard' do
       expect(@customer_3.first_name).to appear_before(@customer_2.first_name)
       expect(@customer_2.first_name).to appear_before(@customer_6.first_name)
       expect(@customer_6.first_name).to appear_before(@customer_1.first_name)
+    end
+    #user story 1 - bulk discounts
+    it 'displays link to the merchants bulk discounts index page' do
+      expect(page).to have_link('Bulk Discounts')
+
+      click_link 'Bulk Discounts'
+
+      expect(current_path).to eq(merchant_bulk_discounts_path(@merchant))
     end
     describe 'Items Ready to Ship' do
       it 'displays all items that are ready to ship and link to the invoice' do
