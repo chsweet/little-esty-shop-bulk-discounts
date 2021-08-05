@@ -6,9 +6,9 @@ RSpec.describe 'Merchant Dashboard' do
     before :each do
       @merchant = create(:merchant)
 
-      @bulk_discount_1 = create(:bulk_discount)
-      @bulk_discount_2 = create(:bulk_discount)
-      @bulk_discount_3 = create(:bulk_discount)
+      @bulk_discount_1 = create(:bulk_discount, merchant: @merchant)
+      @bulk_discount_2 = create(:bulk_discount, merchant: @merchant)
+      @bulk_discount_3 = create(:bulk_discount, merchant: @merchant)
 
       @customer_1 = create(:customer)
       @customer_2 = create(:customer)
