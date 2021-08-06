@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'merchant bulk index page' do
+RSpec.describe 'merchant bulk discoutnt index page' do
   before :each do
     @merchant = create(:merchant)
 
