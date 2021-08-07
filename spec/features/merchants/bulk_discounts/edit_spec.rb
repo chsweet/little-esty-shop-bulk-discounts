@@ -12,18 +12,18 @@ RSpec.describe 'merchant bulk discount show page' do
 
     click_link 'Edit Discount'
 
-    expect(current_path).to eq(edit_merchant_bulk_discount(@merchant, @discount_3))
+    expect(current_path).to eq(edit_merchant_bulk_discount_path(@merchant, @discount_3))
   end
 
   it 'diplays form with current attributes' do
-    visit edit_merchant_bulk_discount(@merchant, @discount_3)
+    visit edit_merchant_bulk_discount_path(@merchant, @discount_3)
 
-    expect(page).to have_content("Percentage Discount: #{@discount_3.percentage_discount}")
-    expect(page).to have_content("Quantity Threshold: #{@discount_3.quantity}")
+    find_field('Percentage Discount', with: "#{@discount_3.percentage_discount}").value
+    find_field('Quantity Threshold', with: "#{@discount_3.quantity}").value
   end
 
   it 'Redirects to show page after form is submitted' do
-    visit edit_merchant_bulk_discount(@merchant, @discount_3)
+    visit edit_merchant_bulk_discount_path(@merchant, @discount_3)
 
     fill_in 'Percentage Discount', with: 20
     fill_in 'Quantity Threshold', with: 15
