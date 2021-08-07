@@ -12,8 +12,8 @@
 <% end  %>
 <br>
 <aside id="holidays">
+  <h3>Upcoming Holiday's</h3>
   <% @holidays.each do |holiday| %>
-    <p> <%= holiday[:name] %>
-    <%= holiday[:date] %></p>
+    <p> <%= holiday[:name] %> <%= holiday[:date] %></p>
   <% end %>
 </aside>
