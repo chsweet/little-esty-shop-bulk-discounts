@@ -31,4 +31,14 @@ RSpec.describe 'merchant bulk discoutnt index page' do
       expect(current_path).to eq(merchant_bulk_discount_path(@merchant, @discount_3))
     end
   end
+
+  it 'displays the next 3 upcoming US holidays' do
+    # save_and_open_page
+    within("#holidays") do
+      expect(page).to have_content("Labor Day 2021-09-06")
+      expect(page).to have_content("Columbus Day 2021-10-11")
+      expect(page).to have_content("Veterans Day 2021-11-11")
+      expect(page).to_not have_content("Thanksgiving Day 2021-11-25")
+    end
+  end
 end

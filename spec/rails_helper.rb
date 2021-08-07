@@ -76,6 +76,7 @@ Shoulda::Matchers.configure do |config|
 end
 
 repo_info = {:id=>389774449, :name=>"little-esty-shop"}
+
 contributor_info = [
   {id: 56685055,:login=>"InOmn1aParatus", :contributions=>75},
   {id: 79383963,:login=>"amcguire17", :contributions=>42},
@@ -95,5 +96,18 @@ RSpec.configure do |config|
     allow(GithubService).to receive(:repo_info).and_return(repo_info)
     allow(GithubService).to receive(:contributor_info).and_return(contributor_info)
     allow(GithubService).to receive(:pulls_info).and_return(pulls_info)
+  end
+end
+
+holidays = [
+  {"date":"2021-09-06","localName":"Labor Day","name":"Labour Day"},
+  {"date":"2021-10-11","localName":"Columbus Day","name":"Columbus Day"},
+  {"date":"2021-11-11","localName":"Veterans Day","name":"Veterans Day"},
+  {"date":"2021-11-25","localName":"Thanksgiving Day","name":"Thanksgiving Day"},
+  ]
+
+RSpec.configure do |config|
+  config.before(:each, :type => :feature) do
+    allow(NagerDateService).to receive(:holidays).and_return(holidays)
   end
 end
