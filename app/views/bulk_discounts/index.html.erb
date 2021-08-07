@@ -10,3 +10,10 @@
     </li>
   </section>
 <% end  %>
+<br>
+<aside id="holidays">
+  <% @holidays.each do |holiday| %>
+    <p> <%= holiday[:name] %>
+    <%= holiday[:date] %></p>
+  <% end %>
+</aside>
