@@ -44,8 +44,8 @@ RSpec.describe InvoiceItem, type: :model do
 
     describe '#find_discount' do
       it 'returns discount to be applied to invoice item' do
-        expect(@invoice_item_1.find_discount).to eq(0.20)
-        expect(@invoice_item_2.find_discount).to eq(0.20)
+        expect(@invoice_item_1.find_discount).to eq(@discount_1)
+        expect(@invoice_item_2.find_discount).to eq(@discount_1)
       end
     end
 
