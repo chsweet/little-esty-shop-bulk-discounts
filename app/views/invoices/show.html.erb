@@ -14,7 +14,7 @@
  <ul>
    <li><%= "Invoice item name: #{inv_item.item.name}" %></li>
    <li><%= "Invoice item quantity: #{inv_item.quantity}" %></li>
-   <li><%= "Invoice item price: #{inv_item.unit_price}" %></li>
+   <li><%= "Invoice item price: #{inv_item.price_display}" %></li>
    <li>Invoice item status: <%= inv_item.status %><%= form_with url:"/merchants/#{@merchant.id}/invoice_item/#{inv_item.id}", method: :patch, local: true do |form|%>
    <%= form.select :status, [:pending, :packaged, :shipped], selected: inv_item.status %></li>
   <%= form.submit "Update Item Status"%>
@@ -24,3 +24,4 @@
 <% end %>
 
 <h3><%= "Total revenue from invoice: #{@invoice.total_revenue}" %></h3>
+<h3><%= "Total discounted revenue from invoice: #{@invoice.total_discounted_revenue}" %></h3>
