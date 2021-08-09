@@ -22,7 +22,17 @@ class Invoice < ApplicationRecord
     invoice_items.sum("unit_price * quantity") / 100.00
   end
 
+  def total_discounted_revenue
+    invoice_items.sum do |invoice_item|
+      invoice_item.discounted_unit_price * invoice_item.quantity
+    end / 100.00
+  end
+
   def created_at_display
     created_at.strftime("%A, %B %-d, %Y")
+  end
+
+  def price_display
+    unit_price / 100.00
   end
 end
