@@ -8,11 +8,15 @@ class InvoiceItem < ApplicationRecord
 
   #it does not like when i call on the table name .where('bulk_discount.quantity <= ?', 'ivnoice_item.quantity')
   def find_discount
-    item.merchant.bulk_discounts.where('quantity <= ?', quantity).maximum('percentage_discount').to_f / 100
+    item.merchant.bulk_discounts.where('quantity <= ?', quantity).order(percentage_discount: :desc).first
   end
 
   def discounted_unit_price
-    unit_price - (unit_price * find_discount)
+    if find_discount.nil?
+      unit_price
+    else
+      unit_price - (unit_price * (find_discount.percentage_discount / 100.0))
+    end
   end
 
   def price_display
