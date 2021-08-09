@@ -84,20 +84,7 @@ Learning goals and areas of focus consisted of:
 | Github      |               |               |
 
 
-## Contributors
-
-👤  **Amanda McGuire**
-- [GitHub](https://github.com/amcguire17)
-- [LinkedIn](https://www.linkedin.com/in/amanda-e-mcguire/)
-
-👤  **Matt Kragen**
-- [GitHub](https://github.com/InOmn1aParatus)
-- [LinkedIn](https://www.linkedin.com/in/mattkragen/)
-
+## Contributor
 👤  **Carina Sweet**
 - [GitHub](https://github.com/chsweet)
 - [LinkedIn](https://www.linkedin.com/in/carina-h-sweet/)
-
-👤  **Ezzedine Alwafai**
-- [GitHub](https://github.com/ealwafai)
-- [LinkedIn](https://www.linkedin.com/in/ezzedine-alwafai/)

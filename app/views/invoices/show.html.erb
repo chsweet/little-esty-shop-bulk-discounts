@@ -12,7 +12,7 @@
  <% @invoice.invoice_items.each do |inv_item| %>
  <section id="invoice_item-info-<%= inv_item.id %>">
  <ul>
-   <% unless inv_item.find_discount.nil? %>
+   <% if inv_item.find_discount %>
      <%= link_to 'Discount Applied', merchant_bulk_discount_path(@merchant, inv_item.find_discount) %>
    <% end %>
    <li><%= "Invoice item name: #{inv_item.item.name}" %></li>

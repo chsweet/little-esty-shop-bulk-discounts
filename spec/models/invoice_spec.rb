@@ -58,7 +58,7 @@ RSpec.describe Invoice, type: :model do
         invoice_item_5 = create(:invoice_item, item_id: item_2.id, invoice_id: invoice_3.id)
         invoice_item_6 = create(:invoice_item, item_id: item_3.id, invoice_id: invoice_4.id)
 
-        expect(Invoice.merchants_invoices(merchant_1.id)).to eq([invoice_1, invoice_2, invoice_3])
+        expect(Invoice.merchants_invoices(merchant_1.id)).to match([invoice_1, invoice_2, invoice_3])
       end
     end
   end
