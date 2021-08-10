@@ -4,14 +4,11 @@
 
 - [Background and Description](#background-and-description)
 - [Learning Goals](#learning-goals)
-- [Requirements](#requirements)
 - [Setup](#setup)
-- [Phases](#phases)
+- [Bulk Discounts](#bulk-discounts)
 - [Database Schema](#database-schema)
-- [Overview](#overview)
-- [Learning Goals](#learning-goals)
 - [Tools Used](#tools-used)
-- [Contributors](#contributors)
+- [Contributor](#contributor)
 
 ## Background and Description
 
