@@ -1,5 +1,10 @@
 <%= render 'dashboard/merch_nav' %>
 
+<aside>
+  <h3>Total revenue from invoice: <%= @invoice.total_revenue %></h3>
+  <h3>Total discounted revenue from invoice: <%= @invoice.total_discounted_revenue %></h3>
+</aside>
+
 <h3> <%= "Invoice ##{@invoice.id}" %> </h3>
 
 <p> <%= "Status: #{@invoice.status}" %> </p>
@@ -25,6 +30,3 @@
 </ul>
 </section>
 <% end %>
-
-<h3><%= "Total revenue from invoice: #{@invoice.total_revenue}" %></h3>
-<h3><%= "Total discounted revenue from invoice: #{@invoice.total_discounted_revenue}" %></h3>

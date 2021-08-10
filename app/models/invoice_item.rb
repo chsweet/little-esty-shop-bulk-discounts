@@ -18,7 +18,7 @@ class InvoiceItem < ApplicationRecord
     end
   end
 
-  def discounted_inv_item_rev
+  def discounted_inv_item_revenue
     discounted_unit_price * quantity / 100.0
   end
 

@@ -23,7 +23,7 @@ class Invoice < ApplicationRecord
   end
 
   def total_discounted_revenue
-    invoice_items.sum(&:discounted_inv_item_rev)
+    invoice_items.sum(&:discounted_inv_item_revenue)
   end
 
   def created_at_display

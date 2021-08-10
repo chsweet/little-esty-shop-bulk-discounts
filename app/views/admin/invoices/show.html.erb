@@ -1,5 +1,10 @@
 <%= render 'admin/dashboard/admin_nav' %>
 
+<aside>
+  <h3>Total Projected Revenue: <%= @invoice.total_revenue %></h3>
+  <h3>Total Projected Discounted Revenue: <%= @invoice.total_discounted_revenue %></h3>
+</aside>
+
 <h2>ID #: <%= @invoice.id %></h2>
 <h3>Status:
   <%= form_with( model: [:admin, @invoice], method: :patch, url: admin_invoice_path(@invoice), local: true) do |f| %>
@@ -19,8 +24,3 @@
   <p>Price: $<%= inv_item.price_display %></p>
   <p>Item Status: <%= inv_item.status %></p>
 <% end %>
-
-<br><hr>
-
-<h3>Total Projected Revenue: <%= @invoice.total_revenue %></h3>
-<h3><%= "Total Projected Discounted Revenue: #{@invoice.total_discounted_revenue}" %></h3>
