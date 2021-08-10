@@ -54,6 +54,13 @@ RSpec.describe InvoiceItem, type: :model do
         expect(@invoice_item_1.discounted_unit_price).to eq(800)
       end
     end
+
+    describe '#discounted_inv_item_revenue' do
+      it 'calculates the discounted revenue for the invoice item' do
+        expect(@invoice_item_1.discounted_inv_item_revenue).to eq(160.0)
+      end
+    end
+
     describe '#price_display' do
       it 'displays unit_price in dollar amount' do
         invoice = create(:invoice)
