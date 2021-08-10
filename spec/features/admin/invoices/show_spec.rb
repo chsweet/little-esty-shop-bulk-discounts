@@ -9,7 +9,7 @@ RSpec.describe 'Admin Invoice show page' do
 
     @customer = create(:customer)
 
-    @invoice = create(:invoice, customer_id: @customer.id)
+    @invoice = create(:invoice, status: 0, customer_id: @customer.id)
 
     @item_1 = create(:item, merchant_id: @merchant.id)
     @item_2 = create(:item, merchant_id: @merchant.id)
@@ -37,7 +37,6 @@ RSpec.describe 'Admin Invoice show page' do
   end
 
   it 'shows total revenue to be earned through invoice' do
-    save_and_open_page
     expect(page).to have_content("Total Projected Revenue: #{@invoice.total_revenue}")
   end
 
@@ -46,7 +45,7 @@ RSpec.describe 'Admin Invoice show page' do
     expect(page).to have_select(selected: "#{@invoice.status.titleize}")
   end
 
-  xit 'can update status using select field' do
+  it 'can update status using select field' do
     expect(@invoice.status).to eq('in progress')
     select('Completed')
     click_button 'Update Invoice'
